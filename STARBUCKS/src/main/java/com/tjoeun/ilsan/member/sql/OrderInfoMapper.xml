@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tjoeun.ilsan.member.sql.OrderInfoMapper">
+
+	<select id="selectOrderInfo" resultType="map">
+		SELECT  seq
+				,menu
+		        ,amount
+		        ,user_id
+		        ,create_date
+		FROM 	order_info
+	</select>
+	
+	<update id="insertOrderInfo" parameterType="map">
+	    INSERT INTO order_info
+		(
+			menu
+			,amount
+			,sum
+			,user_id
+		) values (
+			#{menu}
+			,#{amount}
+			,#{sum}
+			,#{user_id}
+		)
+	 </update>
+</mapper>
